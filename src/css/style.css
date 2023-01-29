@@ -1,0 +1,171 @@
+@import url('base.css');
+@import url('animate.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(var(--soft-violet) 20%, var(--soft-blue));
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  max-width: 380px;
+  padding: 50px 30px;
+  background-color: var(--gray-blue);
+  border-radius: 20px;
+}
+
+details {
+  position: relative;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+details summary {
+  list-style-type: none;
+  padding-right: 50px;
+  cursor: pointer;
+  transition: margin 150ms ease-out;
+}
+
+details summary::after {
+  content: url('../images/icon-arrow-down.svg');
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+}
+
+details[open] summary {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+details p {
+  font-size: 12px;
+  color: gray;
+}
+
+.attribution {
+  margin: 20px 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 991px) {
+  .card {
+    margin-top: min(20vh);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    width: 280px;
+    height: 200px;
+    background-image: url('../images/illustration-woman-online-mobile.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 80px;
+    width: 250px;
+    height: 120px;
+    margin-top: -80px;
+    background-image: url('../images/bg-pattern-mobile.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .title {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .card {
+    flex-direction: row;
+    justify-content: end;
+    align-items: start;
+    gap: 50px;
+    max-width: 950px;
+    min-height: 500px;
+    background: url('../images/illustration-woman-online-desktop.svg') top 55%
+        left -80px no-repeat,
+      url('../images/bg-pattern-desktop.svg') top 65% left -575px no-repeat;
+    background-color: var(--gray-blue);
+  }
+
+  .card::before {
+    content: url('../images/illustration-box-desktop.svg');
+    position: absolute;
+    top: 210px;
+    left: -120px;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation: animate-box 3s ease-in-out infinite;
+  }
+
+  .card::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .faqs-container {
+    float: right;
+    width: 50%;
+    max-width: 400px;
+  }
+
+  .title {
+    margin: 10px 0 50px 0;
+  }
+
+  details summary[open] {
+    font-weight: bold;
+  }
+
+  details:not([open]) summary:hover {
+    color: var(--soft-red);
+    font-weight: normal;
+  }
+}
